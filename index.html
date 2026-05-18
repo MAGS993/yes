@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>TEST</title>
+  <style>
+    body { background: #667eea; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+    .box { background: white; padding: 40px; border-radius: 20px; text-align: center; }
+    .dot { display: inline-block; width: 30px; height: 30px; border-radius: 50%; background: #ccc; margin: 10px; }
+    .dot.on { background: #48bb78; }
+    button { padding: 20px; font-size: 24px; margin: 5px; border-radius: 10px; border: 2px solid #ccc; cursor: pointer; }
+    #msg { margin-top: 20px; font-weight: bold; }
+  </style>
+</head>
+<body>
+
+<div class="box">
+  <h2>PIN TEST</h2>
+  <div>
+    <span class="dot" id="a"></span>
+    <span class="dot" id="b"></span>
+    <span class="dot" id="c"></span>
+    <span class="dot" id="d"></span>
+  </div>
+  <div>
+    <button onclick="press('1')">1</button>
+    <button onclick="press('2')">2</button>
+    <button onclick="press('3')">3</button>
+  </div>
+  <div id="msg">Click a number</div>
+</div>
+
+<script>
+  var pin = '';
+  
+  function press(num) {
+    pin = pin + num;
+    document.getElementById('msg').textContent = 'PIN: ' + pin + ' (length: ' + pin.length + ')';
+    
+    if (pin.length >= 1) document.getElementById('a').classList.add('on');
+    if (pin.length >= 2) document.getElementById('b').classList.add('on');
+    if (pin.length >= 3) document.getElementById('c').classList.add('on');
+    if (pin.length >= 4) document.getElementById('d').classList.add('on');
+  }
+</script>
+
+</body>
+</html>
